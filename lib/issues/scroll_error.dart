@@ -21,7 +21,7 @@ class MyWidget extends StatelessWidget {
       height: 40.0,
       child: ListView.builder(
         itemCount: 10,
-        scrollDirection: Axis.horizontal,
+        scrollDirection: Axis.vertical,
         itemBuilder: (BuildContext context, int index) {
           return Text("Text $index");
         },
