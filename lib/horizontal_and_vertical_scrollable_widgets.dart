@@ -2,15 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class HorizontalAndVerticalScrollableWidgets extends StatefulWidget {
-  @override
-  KanbanStateState createState() {
-    return KanbanStateState();
-  }
-}
-
-class KanbanStateState extends State<HorizontalAndVerticalScrollableWidgets> {
-  @override
+class HorizontalAndVerticalScrollableWidgets extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget tagList = Container(
       color: Colors.green,
