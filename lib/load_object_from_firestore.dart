@@ -72,14 +72,23 @@ class GameReview {
         reviewers = List.from(data['reviewers']);
 }
 
+class ItemCount {
+  int itemType;
+  int count;
+
+  ItemCount.fromMap(Map<dynamic, dynamic> data)
+      : itemType = data['itemType'],
+        count = data['count'];
+}
+
 class GameRecord {
-  // Header members
   String documentID;
   String name;
   int creationTimestamp;
-  List<int> ratings = new List<int>();
-  List<String> players = new List<String>();
+  List<int> ratings;
+  List<String> players;
   GameReview gameReview;
+  List<ItemCount> itemCounts;
 
   GameRecord.fromSnapshot(DocumentSnapshot snapshot)
       : documentID = snapshot.documentID,
@@ -87,5 +96,8 @@ class GameRecord {
         creationTimestamp = snapshot['creationTimestamp'],
         ratings = List.from(snapshot['ratings']),
         players = List.from(snapshot['players']),
-        gameReview = GameReview.fromMap(snapshot['gameReview']);
+        gameReview = GameReview.fromMap(snapshot['gameReview']),
+        itemCounts = snapshot['itemCount'].map<ItemCount>((item) {
+          return ItemCount.fromMap(item);
+        }).toList();
 }
